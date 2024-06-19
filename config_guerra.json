@@ -1,0 +1,20 @@
+{
+    "valores": {
+        "Nome da Equipe": "equipe A",
+        "GRUPO ELITE": "1093",
+        "GRUPO A": "1000",
+        "GRUPO B": "840",
+        "GRUPO C": "790",
+        "GRUPO D": "700",
+        "GRUPO E": "500"
+    },
+    "equipe A": {
+        "Nome da Equipe": "equipe A",
+        "GRUPO ELITE": "1860",
+        "GRUPO A": "1825",
+        "GRUPO B": "1580",
+        "GRUPO C": "1444",
+        "GRUPO D": "1440",
+        "GRUPO E": "1430"
+    }
+}
