@@ -1,5 +1,6 @@
 import json
 import flet as ft
+from operator import attrgetter
 
 class ConfirmarSaida:
     def __init__(self,page, funcao = None):
@@ -673,6 +674,8 @@ class layout_vilas(ft.Column):
                 return {}
 
 
+    def OrdenarListadeClasses(self, lista, atributo, decrecente=True):
+        return sorted(lista, key=attrgetter(atributo), reverse=decrecente)    
 
 
 

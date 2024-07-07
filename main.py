@@ -1207,10 +1207,6 @@ class Guerra2:
 
 # g2 = Guerra2(metodo=None, equipe=None, fase=None, arq_configuracoes='config_guerra.json')
 
-
-
-
-
        
 class LayoutGuerra(ft.Row):
     def __init__(self):
@@ -1330,7 +1326,7 @@ class LayoutGuerra(ft.Row):
                 self.g2.Resultado2()
                 self.tabela.visible = True
                 self.tabela.df = self.g2.df
-                self.RedimensionarJanela(400)
+                self.RedimensionarJanela(425)
                 self.update()
             else:
                 print('Você ainda não rodou o programa, usando metódo 2')
@@ -1370,9 +1366,6 @@ class LayoutGuerra(ft.Row):
         tamanho = 30*(len(self.g2.lista_jogadores)-4)+valor
         self.page.window_width = tamanho
         self.page.update()
-
-
-
 
 class ConfirmarSaida:
     def __init__(self,page, funcao = None):
@@ -1486,7 +1479,7 @@ def main(page: ft.Page):
         match e.data:
             case '4':
                page.window_width = 630
-               page.window_height = 900
+               page.window_height = 970
                page.update()             
             case '3':
                page.window_width = 700
@@ -1495,7 +1488,7 @@ def main(page: ft.Page):
                page.window_width = 500
                page.update()  
             case '1':
-               page.window_width = 500
+               page.window_width = 510
                page.update()  
             case '0':
                page.window_width = 750

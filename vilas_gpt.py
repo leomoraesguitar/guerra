@@ -1,5 +1,6 @@
 import json
 import flet as ft
+from operator import attrgetter
 
 class ConfirmarSaida:
     def __init__(self, page, funcao=None):
@@ -315,10 +316,11 @@ class LayoutVilas(ft.Column):
         self.num_vilas = ft.Dropdown(label='Número de Vilas', value=num_vilas, options=[ft.dropdown.Option(i) for i in range(51)], dense=True, content_padding=5, width=180, on_change=self.Chenge_num_vilas)
         self.botao_salvar = ft.ElevatedButton('Salvar', on_click=self.Salvar, width=150)
         self.botao_zerar = ft.ElevatedButton('zerar exp', on_click=self.Zerar_exposicoes, width=150)
+        self.botao_ordenar = ft.ElevatedButton('Ordenar', on_click=self.Ordenar_vilas, width=150)
 
         self.controls.extend([
             self.num_vilas,
-            ft.Row([self.botao_salvar,self.botao_zerar,]),
+            ft.Row([self.botao_salvar,self.botao_zerar,self.botao_ordenar]),
             ft.Container(ft.Row([ft.Text('  Nome    '), ft.Text(' CV  '), ft.Text('Exposição')]), border=ft.border.all(1, 'white,0.5'), width=180)
         ])
         cumprimento_coluna = min(540, 165 + (36 * int(num_vilas)))
@@ -399,6 +401,15 @@ class LayoutVilas(ft.Column):
         except json.JSONDecodeError as e:
             print(f"Erro ao decodificar JSON: {e}")
             return {}
+        
+
+    def OrdenarListadeClasses(self, lista, atributo, decrecente=True):
+        return sorted(lista, key=attrgetter(atributo), reverse=decrecente)    
+
+    def Ordenar_vilas(self, e):
+        self.controls[3].content.controls = self.OrdenarListadeClasses(self.controls[3].content.controls,'nivel_cv')
+        self.update()     
+
 
 def main(page: ft.Page):
     page.window_width = 350
